@@ -4,8 +4,9 @@ import { Link, useParams } from 'react-router-dom'
 import Rating from '../components/ui/Rating'
 import Price from '../components/ui/Price'
 import Book from '../components/ui/Book'
+import { faAudioDescription } from '@fortawesome/free-solid-svg-icons'
 
-const BookInfo = ({ books }) => {
+const BookInfo = ({ books, addToCart }) => {
     const { id } = useParams();
     const book = books.find(book => +book.id == +id);
     console.log(book)
@@ -55,7 +56,7 @@ const BookInfo = ({ books }) => {
                                     praesentium expedita, maiores quibusdam quos eum 
                                  </p>
                             </div>
-                            <button className="btn">
+                            <button className="btn" onClick={() => addToCart(book)}>
                                 Add to Cart
                             </button>
                         </div>
